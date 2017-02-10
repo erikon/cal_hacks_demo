@@ -3,9 +3,9 @@
 This is a Demo Web Application that has a UI to visualize data about Hacker's genders & shirt sizes.
 
 There are also 2 Http API endpoints that query data:
-	1. '/hackers': Returns hacker check-in and check-out data as well as some other details. Returns a JSON object.
-		- A request to the URL: '/hackers?school=school name here' will filter the data to produce JSON of only hackers from the named school
-	2. '/shirts': Returns totals for hackers' genders and shirt sizes. Returns a JSON object.
+1. '/hackers': Returns hacker check-in and check-out data as well as some other details. Returns a JSON object.
+	- A request to the URL: '/hackers?school=school name here' will filter the data to produce JSON of only hackers from the named school
+2. '/shirts': Returns totals for hackers' genders and shirt sizes. Returns a JSON object.
 
 This application was created using the Flask web framework. The data visualization was created using the Javascript Library Vis.js.
 
