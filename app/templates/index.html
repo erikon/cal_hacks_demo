@@ -1,0 +1,152 @@
+<html>
+  <head>
+    <script type="text/javascript" src="/static/js/vis.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css"></link>
+    <link rel="stylesheet" href="/static/css/vis.min.css"></link>
+    <title> Cal Hacks! </title>
+  </head>
+  <body>
+    <div id="Title"><h1> Chart of Shirt & Gender Data </h1></div>
+    <div id="visualization"></div>
+  </body>
+
+  <script>
+  var container = document.getElementById('visualization');
+
+  var label1 = {
+    content: "{{shirts['Total']}}",
+    yOffset:-8,
+    xOffset: -15
+  }
+
+  var label2 = {
+    content: "Male Total: {{shirts['Male']}}",
+    yOffset:-8,
+    xOffset: -50
+  }
+
+  var label3 = {
+    content: "Male XS: {{shirts['MaleXS']}}",
+    yOffset:-8,
+    xOffset: -35
+  }
+
+  var label4 = {
+    content: "Male S: {{shirts['MaleS']}}",
+    yOffset:-8,
+    xOffset: -35
+  }
+
+  var label5 = {
+    content: "Male M: {{shirts['MaleM']}}",
+    yOffset:-8,
+    xOffset: -35
+  }
+
+  var label6 = {
+    content: "Male L: {{shirts['MaleL']}}",
+    yOffset:-8,
+    xOffset: -35
+  }
+
+  var label7 = {
+    content: "Male XL: {{shirts['MaleXL']}}",
+    yOffset:-8,
+    xOffset: -35
+  }
+
+  var label8 = {
+    content: "Female Total: {{shirts['Female']}}",
+    yOffset:-8,
+    xOffset: -35
+  }
+
+  var label9 = {
+    content: "Female XS: {{shirts['FemaleXS']}}",
+    yOffset:-8,
+    xOffset: -35
+  }
+
+  var label10 = {
+    content: "Female S: {{shirts['FemaleS']}}",
+    yOffset:-8,
+    xOffset: -35
+  }
+
+  var label11 = {
+    content: "Female M: {{shirts['FemaleM']}}",
+    yOffset:-8,
+    xOffset: -35
+  }
+
+  var label12 = {
+    content: "Female L: {{shirts['FemaleL']}}",
+    yOffset:-8,
+    xOffset: -35
+  }
+
+  var label13 = {
+    content: "Female XL: {{shirts['FemaleXL']}}",
+    yOffset:-8,
+    xOffset: -35
+  }
+
+  var label14 = {
+    content: "None: {{shirts['None']}}",
+    yOffset:-8,
+    xOffset: -35
+  }
+
+  var shirt_data = [
+    {x:0, y: {{shirts['Total']}}, group: 0, label: label1},
+    {x:1, y: {{shirts['Male']}}, group: 1, label: label2},
+    {x:2, y: {{shirts['MaleXS']}}, group: 1, label: label3},
+    {x:3, y:  {{shirts['MaleS']}}, group: 1, label: label4},
+    {x:4, y:  {{shirts['MaleM']}}, group: 1, label: label5},
+    {x:5, y:  {{shirts['MaleL']}}, group: 1, label: label6},
+    {x:6, y:  {{shirts['MaleXL']}}, group: 1, label: label7},
+    {x:7, y:  {{shirts['Female']}}, group: 2, label: label8},
+    {x:8, y:  {{shirts['FemaleXS']}}, group: 2, label: label9},
+    {x:9, y:  {{shirts['FemaleS']}}, group: 2, label: label10},
+    {x:10, y:  {{shirts['FemaleM']}}, group: 2, label: label11},
+    {x:11, y:  {{shirts['FemaleL']}}, group: 2, label: label12},
+    {x:12, y:  {{shirts['FemaleXL']}}, group: 2,label: label13},
+    {x:13, y:  {{shirts['None']}}, group: 3, label: label14},
+  ];
+
+  var groups = new vis.DataSet();
+  groups.add({
+    id: 0,
+    content: 'Total',
+  });
+  groups.add({
+    id: 1,
+    content: 'Male'
+  });
+  groups.add({
+    id: 2,
+    content: 'Female'
+  });
+  groups.add({
+    id: 3,
+    content: 'None'
+  });
+
+  var dataset = new vis.DataSet(shirt_data);
+  var options = {
+    width:  '100%',
+    height: '75%',
+    style: 'bar',
+    barChart: {width:50, align:'center', sideBySide:true},
+    showMajorLabels: false,
+    showMinorLabels: false,
+    legend: {left: {position: "top-right"}},
+    dataAxis:{left:{title: {text:"Number of People"}}}
+
+
+  };
+  var graph2d = new vis.Graph2d(container, dataset, groups, options);
+
+  </script>
+
+</html>
